@@ -1,6 +1,6 @@
 import { Dialog } from "@headlessui/react";
 
-export default function Modal({ isOpen, setIsOpen }) {
+export default function Modal({ isOpen, setIsOpen, title, children }) {
   const close = () => setIsOpen(false);
 
   return (
@@ -10,11 +10,10 @@ export default function Modal({ isOpen, setIsOpen }) {
           <div className="flex items-center justify-center min-h-full p-4">
             <Dialog.Panel className="w-full max-w-md p-6 bg-white shadow-xl rounded-xl">
               <Dialog.Title className="text-lg font-medium text-gray-900">
-                Payment successful
+              {title}
               </Dialog.Title>
               <p className="mt-2 text-sm text-gray-600">
-                Your payment has been successfully submitted. We’ve sent you an
-                email with all the details.
+               {children}
               </p>
               <div className="mt-4">
                 <button
