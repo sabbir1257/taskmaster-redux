@@ -3,9 +3,11 @@ import MyTasks from "../components/tasks/MyTasks";
 import TaskCard from "../components/tasks/TaskCard";
 import { useState } from "react";
 import AddTaskModal from "../components/tasks/AddTaskModal";
+import { useSelector } from "react-redux";
 
 const Tasks = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { tasks } = useSelector((state) => state.tasksSlice);
 
   return (
     <div className="grid h-screen grid-cols-12">
@@ -46,7 +48,9 @@ const Tasks = () => {
               </p>
             </div>
             <div className="space-y-3">
-              <TaskCard />
+              {tasks.map((item) => (
+                <TaskCard key={item.id} task={item} />
+              ))}
             </div>
           </div>
           <div className="relative h-[800px] overflow-auto">
@@ -57,8 +61,9 @@ const Tasks = () => {
               </p>
             </div>
             <div className="space-y-3">
-              <TaskCard />
-              <TaskCard />
+              {tasks.map((item) => (
+                <TaskCard key={item.id} task={item} />
+              ))}
             </div>
           </div>
           <div className="relative h-[800px] overflow-auto">
@@ -69,13 +74,15 @@ const Tasks = () => {
               </p>
             </div>
             <div className="space-y-3">
-              <TaskCard />
+              {tasks.map((item) => (
+                <TaskCard key={item.id} task={item} />
+              ))}
             </div>
           </div>
         </div>
       </div>
       <div className="col-span-3 px-10 pt-10 border-l-2 border-secondary/20">
-        <div>
+        <div>     
           <h1 className="text-xl">Members</h1>
           <div className="flex gap-3 mt-3">
             <div className="w-10 h-10 overflow-hidden rounded-xl">

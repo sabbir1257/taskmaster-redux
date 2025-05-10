@@ -59,7 +59,7 @@ const AddTaskModal = ({ isOpen, setIsOpen }) => {
             <label className="block font-semibold">Deadline</label>
             <input
               type="date"
-              {...register("deadline", { required: true })}
+              {...register("date", { required: true })}
               className="w-full p-2 border rounded"
             />
             {errors.deadline && (
@@ -70,14 +70,14 @@ const AddTaskModal = ({ isOpen, setIsOpen }) => {
           <div>
             <label className="block font-semibold">Assign To</label>
             <select
-              {...register("assignTo", { required: true })}
+              {...register("assignedTo", { required: true })}
               className="w-full p-2 border rounded"
             >
-              <option value="Low">Sakib</option>
-              <option value="Medium">Santo</option>
-              <option value="High">Rakib</option>
+              <option value="Sakib">Sakib</option>
+              <option value="Santo">Santo</option>
+              <option value="Rakib">Rakib</option>
             </select>
-            {errors.priority && (
+            {errors.assignedTo && (
               <span className="text-sm text-red-500">Priority is required</span>
             )}
           </div>
@@ -88,7 +88,6 @@ const AddTaskModal = ({ isOpen, setIsOpen }) => {
               {...register("priority", { required: true })}
               className="w-full p-2 border rounded"
             >
-              <option value="">Select priority</option>
               <option value="Low">Low</option>
               <option value="Medium">Medium</option>
               <option value="High">High</option>
