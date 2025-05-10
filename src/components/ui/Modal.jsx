@@ -15,14 +15,6 @@ export default function Modal({ isOpen, setIsOpen, title, children }) {
               <p className="mt-2 text-sm text-gray-600">
                {children}
               </p>
-              <div className="mt-4">
-                <button
-                  onClick={close}
-                  className="inline-flex items-center gap-2 rounded-md bg-gray-700 px-3 py-1.5 text-sm font-semibold text-white hover:bg-gray-600"
-                >
-                  Got it, thanks!
-                </button>
-              </div>
             </Dialog.Panel>
           </div>
         </div>
