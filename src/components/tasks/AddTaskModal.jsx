@@ -1,5 +1,7 @@
 import { useForm } from "react-hook-form";
 import Modal from "../ui/Modal";
+import { useDispatch } from "react-redux";
+import { addTask } from "../../redux/features/tasks/tasksSlice";
 
 const AddTaskModal = ({ isOpen, setIsOpen }) => {
   const {
@@ -9,13 +11,15 @@ const AddTaskModal = ({ isOpen, setIsOpen }) => {
     formState: { errors },
   } = useForm();
 
+  const dispatch = useDispatch();
+
   const onCancel = () => {
     reset();
     setIsOpen(false);
-  }
+  };
 
   const onSubmit = (data) => {
-console.log(data);
+    dispatch(addTask(data));
     onCancel();
   };
 
@@ -64,9 +68,9 @@ console.log(data);
           </div>
 
           <div>
-            <label className="block font-semibold">Assign To</label> 
+            <label className="block font-semibold">Assign To</label>
             <select
-              {...register("AssignTo", { required: true })}
+              {...register("assignTo", { required: true })}
               className="w-full p-2 border rounded"
             >
               <option value="Low">Sakib</option>
@@ -95,7 +99,11 @@ console.log(data);
           </div>
 
           <div>
-            <button className="px-4 py-2 mr-4 text-white bg-red-600 rounded hover:bg-red-700" type="button" onClick={() =>  onCancel()}>
+            <button
+              className="px-4 py-2 mr-4 text-white bg-red-600 rounded hover:bg-red-700"
+              type="button"
+              onClick={() => onCancel()}
+            >
               Cancel
             </button>
             <button
