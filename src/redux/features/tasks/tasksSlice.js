@@ -31,18 +31,11 @@ const tasksSlice = createSlice({
         });
       }
     },
-    /*   removeTask: (state, { payload }) => {
-  state.tasks = state.tasks.filter((item) => item.id !== payload);
-},
- */
+    
     removeTask: (state, { payload }) => {
       state.tasks = state.tasks.filter((item) => item.id !== payload);
     },
 
-    /*  updateStatus: (state, { payload }) => {
-      const target = state.tasks.find((item) => item.id === payload);
-      target.status = 'running';
-    }, */
     updateStatus: (state, { payload }) => {
       const target = state.tasks.find((item) => item.id === payload.id);
         target.status = payload.status;
@@ -50,5 +43,5 @@ const tasksSlice = createSlice({
   },
 });
 
-export const { addTask, updateStatus } = tasksSlice.actions;
+export const { addTask, updateStatus, removeTask } = tasksSlice.actions;
 export default tasksSlice.reducer;
