@@ -73,7 +73,7 @@ const Tasks = () => {
             <div className="flex sticky top-0 justify-between bg-[#D3DDF9] p-5 rounded-md mb-3">
               <h1>Up Next</h1>
               <p className="grid w-6 h-6 text-white rounded-md bg-primary place-content-center">
-                {doneTasks.className}
+                {doneTasks.length}
               </p>
             </div>
             <div className="space-y-3">
