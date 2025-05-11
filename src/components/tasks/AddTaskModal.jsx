@@ -88,9 +88,9 @@ const AddTaskModal = ({ isOpen, setIsOpen }) => {
               {...register("priority", { required: true })}
               className="w-full p-2 border rounded"
             >
-              <option value="Low">Low</option>
-              <option value="Medium">Medium</option>
-              <option value="High">High</option>
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
             </select>
             {errors.priority && (
               <span className="text-sm text-red-500">Priority is required</span>
